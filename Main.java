@@ -22,8 +22,10 @@ public class Main {
 
             int numOfProbs = 0;
             int numOfSolved = 0;
-            double numOfPointsTotal = 0.0;
-            double numOfPointsSolved = 0.0;
+
+            // Kattis users starts with a score of 1.0
+            double numOfPointsTotal = 1.0;
+            double numOfPointsSolved = 1.0;
             int[] problemTabel = new int[9];
             int[] problemTabelSolved = new int[9];
             while((line = bufferedReader.readLine()) != null) {
@@ -44,12 +46,12 @@ public class Main {
                 numOfPointsTotal = numOfPointsTotal+Double.parseDouble(kattisInfo[8]);
             }
 
-            System.out.println(numOfSolved + " ud af " + numOfProbs + " løst");
-            System.out.println(String.format("%.1f", numOfPointsSolved) + " ud af " + String.format("%.1f", numOfPointsTotal) + " points løst");
-            System.out.println("Avg opgave du har løst: " + String.format("%.2f", numOfPointsSolved/numOfSolved));
+            System.out.println(numOfSolved + " out of " + numOfProbs + " solved");
+            System.out.println(String.format("%.1f", numOfPointsSolved) + " out of " + String.format("%.1f", numOfPointsTotal) + " possible points");
+            System.out.println("Avg problem rank solved: " + String.format("%.2f", numOfPointsSolved/numOfSolved));
             for (int i = 0; i < problemTabel.length; i++) {
                 int rang = i+1;
-                System.out.println("Score " + rang + "-" + rang + ".9:  " + problemTabel[i] + "(Du har løst "+ problemTabelSolved[i]+"/ "+String.format("%.2f", (double)problemTabelSolved[i]/problemTabel[i]*100)+"%)");
+                System.out.println("Score " + rang + "-" + rang + ".9:  " + problemTabel[i] + "(You have solved "+ problemTabelSolved[i]+"/ "+String.format("%.2f", (double)problemTabelSolved[i]/problemTabel[i]*100)+"%)");
             }
 
             // Always close files.
