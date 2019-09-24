@@ -1,9 +1,36 @@
 from bs4 import BeautifulSoup
 import requests
+import sqlite3
+import os
+import platform
+
+# Function that finds the path for a given file
+def find_path(name, path):
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            return os.path.join(root, name)
+
+username = os.getlogin()
+
+# Find the path of the cookie database for the given system
+if (platform.system() == 'Darwin'):
+    path = find_path('cookies.sqlite','/Users/'+ username + '/Library/Application Support/Firefox/Profiles')
+elif (platform.system() == 'Linux'):
+    print("Find the path for the file cookis.sqlite!")
+
+# Connect to the database and fetch the cookies
+con = sqlite3.connect(path)
+cur = con.cursor()
+cur.execute("select * from moz_cookies where host = '.kattis.com'")
+cookies = cur.fetchall()
+
+first = cookies[0][4]
+second = cookies[1][4]
 
 output = open('KattisData.txt','a+', encoding='utf-8')
+
 headers = {
-    "Cookie": "__cfduid=dfe5e7e244a9017fcdf40f89b18486a501567024193; site24x7rumID=892557796277259.1567987468145; __zlcmid=u0iUpiPIr8kFxM; EduSiteCookie=7f75652d-6127-4b16-a99c-9cd5caae06a4"
+    "Cookie": "__cfduid=" + first + "; __zlcmid=" + second + "; EduSiteCookie=5b4fc553-af51-4548-94ce-0934705ecac5;"
 }
 
 url, page = "https://open.kattis.com/problems?page=", 0
