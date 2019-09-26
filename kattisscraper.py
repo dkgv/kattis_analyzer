@@ -1,4 +1,5 @@
 import pyfiglet
+import scraper
 
 
 def printTitleScreen():
@@ -22,5 +23,7 @@ if __name__ == "__main__":
             print("exit - Exits the program")
         if cliInput == 'title':
             printTitleScreen()
+        if cliInput == "scrape":
+            scraper.scrape()
         if cliInput == 'exit':
             break
