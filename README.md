@@ -1,6 +1,12 @@
 # Kattis Scraper
 
-Dependencies bla bla
+# Dependencies
+The following packages is required to run the code:
+```
+pyfiglet
+requests
+BeautifulSoup4
+```
 
 # ToDo
 * Rewrite parser in python
