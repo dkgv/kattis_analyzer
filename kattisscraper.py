@@ -19,6 +19,7 @@ if __name__ == "__main__":
         if cliInput == 'help':
             print("The following commands are allowed:")
             print("help - shows this option")
+            print("scrape - Scrapes Kattis for info")
             print("title - Reprints the title screen")
             print("exit - Exits the program")
         if cliInput == 'title':
