@@ -1,5 +1,6 @@
 import pyfiglet
 import scraper
+import katparser
 
 
 def printTitleScreen():
@@ -20,11 +21,14 @@ if __name__ == "__main__":
             print("The following commands are allowed:")
             print("help - shows this option")
             print("scrape - Scrapes Kattis for info")
+            print("parse - start parsing data from kattis")
             print("title - Reprints the title screen")
             print("exit - Exits the program")
         if cliInput == 'title':
             printTitleScreen()
         if cliInput == "scrape":
             scraper.scrape()
+        if cliInput == "parse":
+            katparser.parse()
         if cliInput == 'exit':
             break
