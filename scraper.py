@@ -3,6 +3,7 @@ import requests
 import sqlite3
 import os
 import platform
+import time
 
 '''
 # Function that finds the path for a given file
@@ -30,7 +31,7 @@ second = cookies[1][4]
 '''
 
 def scrape():
-    output = open('KattisData.txt','a+', encoding='utf-8')
+    output = open(getfilename(),'a+', encoding='utf-8')
 
     headers = {
         "Cookie": "EduSiteCookie=5b4fc553-af51-4548-94ce-0934705ecac5;"
@@ -53,3 +54,11 @@ def scrape():
     print('done')
     output.flush()
     output.close()
+
+
+#Gets the current time and returns it with a filename
+def getfilename():
+    timestamp = time.strftime("%Y%m%d%H%M%S")
+    filename = 'kattisdata-'+timestamp+'.txt'
+    print(timestamp)
+    return filename
