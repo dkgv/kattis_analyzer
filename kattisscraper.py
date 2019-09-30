@@ -7,7 +7,6 @@ def printTitleScreen():
     result = pyfiglet.figlet_format("Kattis Scraper")
     print(result)
 
-
 if __name__ == "__main__":
     printTitleScreen()
     print("What do you want to do? (enter help for help)")
@@ -32,3 +31,5 @@ if __name__ == "__main__":
             katparser.parse()
         if cliInput == 'exit':
             break
+        Else:
+            print("Command unknown, type 'help' for a list of commands")
