@@ -9,6 +9,9 @@ BeautifulSoup4
 ```
 
 # ToDo
+* Data saved in files with timestamps
+* Parser could load custom or just latest data
+* Guide for people to find their session id for the scraper
 * Rewrite parser in python
 * Clean scraper
 * Join scraper and parser in same program
