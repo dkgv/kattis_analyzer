@@ -31,5 +31,5 @@ if __name__ == "__main__":
             katparser.parse()
         if cliInput == 'exit':
             break
-        Else:
+        else:
             print("Command unknown, type 'help' for a list of commands")
