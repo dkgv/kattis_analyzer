@@ -39,8 +39,9 @@ def scrape():
         "Cookie": "EduSiteCookie=5b4fc553-af51-4548-94ce-0934705ecac5;"
     }
 
-    url, page = "https://open.kattis.com/problems?page=", 0
-    print("scraping (this will take approximate 30 seconds)")
+    url = "https://open.kattis.com/problems?page="
+    page = 0
+    print("scraping (this will take approximately 30 seconds)")
     while True:
         req = requests.get(url + str(page), headers=headers)
         soup = BeautifulSoup(req.text, 'html.parser')
@@ -50,14 +51,14 @@ def scrape():
         for row in soup.find("table").find("tbody").find_all("tr"):
             results += 1
             vals, cl = row.find_all("td"), row.get("class")
-            output.write('###'.join([vals[x].text for x in range(9)]) + '###' + (str(cl[1]) if len(cl) > 1 else "unsolved") + '\n')
+            output.write("###".join([vals[x].text for x in range(9)]) + "###" + (str(cl[1]) if len(cl) > 1 else "unsolved") + "\n")
         if results == 0:
             break
 
     output.flush()
     output.close()
 
-    print(" ")
+    print(" ")      #dont ask.. just leave it!
     print("scraping completed. Data saved to " + savetofile)
 
 
