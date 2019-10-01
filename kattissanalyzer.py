@@ -23,13 +23,13 @@ if __name__ == "__main__":
             print("parse - start parsing data from kattis")
             print("title - Reprints the title screen")
             print("exit - Exits the program")
-        if cliInput == 'title':
+        elif cliInput == 'title':
             printTitleScreen()
-        if cliInput == "scrape":
+        elif cliInput == "scrape":
             katscraper.scrape()
-        if cliInput == "parse":
+        elif cliInput == "parse":
             katparser.parse()
-        if cliInput == 'exit':
+        elif cliInput == 'exit':
             break
         else:
             print("Command unknown, type 'help' for a list of commands")
