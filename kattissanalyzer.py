@@ -1,5 +1,5 @@
 import pyfiglet
-import scraper
+import katscraper
 import katparser
 
 
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         if cliInput == 'title':
             printTitleScreen()
         if cliInput == "scrape":
-            scraper.scrape()
+            katscraper.scrape()
         if cliInput == "parse":
             katparser.parse()
         if cliInput == 'exit':
