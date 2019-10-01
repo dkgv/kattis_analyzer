@@ -4,7 +4,7 @@ import katparser
 
 
 def printTitleScreen():
-    result = pyfiglet.figlet_format("Kattis Scraper")
+    result = pyfiglet.figlet_format("Kattis Analyzer")
     print(result)
 
 if __name__ == "__main__":
