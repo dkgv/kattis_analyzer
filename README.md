@@ -1,4 +1,4 @@
-# Kattis Scraper
+# Kattis Analyzer
 
 # Dependencies
 The following packages is required to run the code:
