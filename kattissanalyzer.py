@@ -28,7 +28,8 @@ if __name__ == "__main__":
         elif cliInput == "scrape":
             katscraper.scrape()
         elif cliInput == "parse":
-            katparser.parse()
+            #TODO: user should be able to input a file
+            katparser.parse("kattisdata-20191001125520.txt")
         elif cliInput == 'exit':
             break
         else:
