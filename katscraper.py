@@ -36,7 +36,7 @@ def scrape():
     output = open(savetofile,"a+", encoding="utf-8")
 
     headers = {
-        "Cookie": "EduSiteCookie=5b4fc553-af51-4548-94ce-0934705ecac5;"
+        "Cookie": "EduSiteCookie=598d63ab-d5fe-4e52-bbdc-7ee975a98dc1;"
     }
 
     url = "https://open.kattis.com/problems?page="

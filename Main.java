@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
         // The name of the file to open.
-        String fileName = "KattisData.txt";
+        String fileName = "kattisdata-20191003173345.txt";
 
         // This will reference one line at a time
         String line = null;

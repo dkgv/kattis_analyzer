@@ -26,18 +26,24 @@ def findnumofproblems():
     solvedproblems = solved.count("solved\n")
     ratio = solvedproblems/allproblems*100
     ratiostring = "%.2f" % ratio
-    print("Number of problems: " + str(allproblems))
-    print("Number of problems solved: " + str(solvedproblems))
-    print("You have solved: " + ratiostring + "% of all problems")
+    print(str(solvedproblems)+ " out of " + str(allproblems) + " problems solved (" + ratiostring +"%)")
 
+def findnumofpoints():
+    allpoints = sum(difficulty)+1
+    solvedpoints = 1
+    for i in range(len(solved)):
+        if solved[i] == "solved\n":
+            solvedpoints += difficulty[i]
+    solvedpointsstring = "%.1f" % solvedpoints
+    ratio = solvedpoints/allpoints*100
+    ratiostring = "%.2f" % ratio
+    print(solvedpointsstring+ " out of " + str(allpoints) + " possible points(" + ratiostring +"%)")
 
-def parse():
-    #TODO find the latest datafile and call parse with that file as argument
-    print("I AM PARSING!")
+def parse(filename = None):
 
-
-def parse(filename):
-    print("I AM PARSING A SPECIFIC FILE")
+    if filename is None:
+        #TODO: fix seneste
+        filename = "kattisdata-20191003174815.txt"
     reset()
     with open(filename, encoding="utf8") as fp:
         for line in fp:
@@ -50,6 +56,7 @@ def parse(filename):
             usertotal.append(result[5])
             useraccept.append(result[6])
             userratop.append(result[7])
-            difficulty.append(result[8])
+            difficulty.append(float(result[8]))
             solved.append(result[9])
         findnumofproblems()
+        findnumofpoints()
