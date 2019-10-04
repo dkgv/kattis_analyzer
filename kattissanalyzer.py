@@ -10,6 +10,7 @@ def printTitleScreen():
 if __name__ == "__main__":
     printTitleScreen()
     print("What do you want to do? (enter help for help)")
+    filetoparse = ""
     while True:
         cliInput = input()
         cliInput = cliInput.lower()
@@ -26,10 +27,10 @@ if __name__ == "__main__":
         elif cliInput == 'title':
             printTitleScreen()
         elif cliInput == "scrape":
-            katscraper.scrape()
+            filetoparse = katscraper.scrape()
         elif cliInput == "parse":
             #TODO: user should be able to input a file
-            katparser.parse()
+            katparser.parse(filetoparse)
         elif cliInput == 'exit':
             break
         else:

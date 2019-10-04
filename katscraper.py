@@ -5,32 +5,6 @@ import os
 import platform
 import time
 
-'''
-# Function that finds the path for a given file
-def find_path(name, path):
-    for root, dirs, files in os.walk(path):
-        if name in files:
-            return os.path.join(root, name)
-
-username = os.getlogin()
-
-# Find the path of the cookie database for the given system
-if (platform.system() == 'Darwin'):
-    path = find_path('cookies.sqlite','/Users/'+ username + '/Library/Application Support/Firefox/Profiles')
-elif (platform.system() == 'Linux'):
-    print("Find the path for the file cookis.sqlite!")
-
-# Connect to the database and fetch the cookies
-con = sqlite3.connect(path)
-cur = con.cursor()
-cur.execute("select * from moz_cookies where host = '.kattis.com'")
-cookies = cur.fetchall()
-
-first = cookies[0][4]
-second = cookies[1][4]
-'''
-
-
 def scrape():
     savetofile = getfilename()
     output = open(savetofile,"a+", encoding="utf-8")
@@ -60,6 +34,7 @@ def scrape():
 
     print(" ")      #dont ask.. just leave it!
     print("scraping completed. Data saved to " + savetofile)
+    return savetofile
 
 
 # Gets the current time and returns it with a filename

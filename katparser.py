@@ -41,9 +41,9 @@ def findnumofpoints():
 
 def parse(filename = None):
 
-    if filename is None:
+    if filename is "":
         #TODO: fix seneste
-        filename = "kattisdata-20191003174815.txt"
+        filename = "kattisdata-20191004223221.txt"
     reset()
     with open(filename, encoding="utf8") as fp:
         for line in fp:
