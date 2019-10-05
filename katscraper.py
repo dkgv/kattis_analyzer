@@ -10,7 +10,7 @@ def scrape():
     output = open(savetofile,"a+", encoding="utf-8")
 
     headers = {
-        "Cookie": "EduSiteCookie=598d63ab-d5fe-4e52-bbdc-7ee975a98dc1;"
+        "Cookie": "EduSiteCookie="+getsessionsid()+";"
     }
 
     url = "https://open.kattis.com/problems?page="
@@ -42,3 +42,7 @@ def getfilename():
     timestamp = time.strftime("%Y%m%d%H%M%S")
     filename = "kattisdata-"+timestamp+".txt"
     return filename
+
+def getsessionsid():
+    cookieid = open("sessionid.txt", "r")
+    return cookieid.read()

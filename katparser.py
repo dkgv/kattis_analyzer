@@ -9,6 +9,7 @@ userratop = []
 difficulty = []
 solved = []
 
+
 def reset():
     problemnames.clear()
     subtotal.clear()
@@ -21,6 +22,7 @@ def reset():
     difficulty.clear()
     solved.clear()
 
+
 def findnumofproblems():
     allproblems = len(problemnames)
     solvedproblems = solved.count("solved\n")
@@ -28,8 +30,10 @@ def findnumofproblems():
     ratiostring = "%.2f" % ratio
     print(str(solvedproblems)+ " out of " + str(allproblems) + " problems solved (" + ratiostring +"%)")
 
+
 def findnumofpoints():
     allpoints = sum(difficulty)+1
+    allpointsstring = "%.1f" % allpoints
     solvedpoints = 1
     for i in range(len(solved)):
         if solved[i] == "solved\n":
@@ -37,7 +41,8 @@ def findnumofpoints():
     solvedpointsstring = "%.1f" % solvedpoints
     ratio = solvedpoints/allpoints*100
     ratiostring = "%.2f" % ratio
-    print(solvedpointsstring+ " out of " + str(allpoints) + " possible points(" + ratiostring +"%)")
+    print(solvedpointsstring+ " out of " + allpointsstring + " possible points(" + ratiostring +"%)")
+
 
 def parse(filename = None):
 

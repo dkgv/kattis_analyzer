@@ -7,6 +7,7 @@ def printTitleScreen():
     result = pyfiglet.figlet_format("Kattis Analyzer")
     print(result)
 
+
 if __name__ == "__main__":
     printTitleScreen()
     print("What do you want to do? (enter help for help)")
