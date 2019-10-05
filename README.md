@@ -8,7 +8,7 @@ requests
 BeautifulSoup4
 ```
 
-#Usage
+# Usage
 
 To run this code you need to make sure the modules in the dependencies list is installed.
 
