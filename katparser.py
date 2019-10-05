@@ -28,7 +28,7 @@ def findnumofproblems():
     solvedproblems = solved.count("solved\n")
     ratio = solvedproblems/allproblems*100
     ratiostring = "%.2f" % ratio
-    print(str(solvedproblems)+ " out of " + str(allproblems) + " problems solved (" + ratiostring +"%)")
+    print(str(solvedproblems)+ " out of " + str(allproblems) + " problems solved\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
 
 
 def findnumofpoints():
@@ -41,8 +41,37 @@ def findnumofpoints():
     solvedpointsstring = "%.1f" % solvedpoints
     ratio = solvedpoints/allpoints*100
     ratiostring = "%.2f" % ratio
-    print(solvedpointsstring+ " out of " + allpointsstring + " possible points(" + ratiostring +"%)")
+    print(solvedpointsstring+ " out of " + allpointsstring + " possible points\t" + progressbar(ratio) + " (" + ratiostring +"%)")
 
+
+def findsolvedinranges():
+    print(" ")
+    print("Problems divided in difficulty:")
+    for i in range(9):
+        rank = i+1
+        totalinrank = 0
+        solvedinrank = 0
+        # listofrankprobs = [j for j in difficulty if rank <= j < rank + 1]
+        for j in range(len(problemnames)):
+            if rank <= difficulty[j] < rank+1:
+                totalinrank += 1
+                if solved[j] == "solved\n":
+                    solvedinrank +=1
+        ratio = solvedinrank/totalinrank*100
+        ratiostring = "%.2f" % ratio
+        print("score " + str(rank) + "-" + str(rank+0.9) + ": solved " + str(solvedinrank) + "/" + str(totalinrank) + "\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
+
+def progressbar(percent):
+    WITDH = 20
+    numofcharscompleted = int(percent/100*WITDH)
+    barstring = "["
+    for i in range(WITDH):
+        if(i< numofcharscompleted):
+            barstring += "■"
+        else:
+            barstring += " "
+    barstring += "]"
+    return barstring
 
 def parse(filename = None):
 
@@ -63,5 +92,10 @@ def parse(filename = None):
             userratop.append(result[7])
             difficulty.append(float(result[8]))
             solved.append(result[9])
-        findnumofproblems()
-        findnumofpoints()
+    print(" ")
+    findnumofproblems()
+    findnumofpoints()
+    findsolvedinranges()
+
+
+
