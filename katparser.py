@@ -61,6 +61,25 @@ def findsolvedinranges():
         ratiostring = "%.2f" % ratio
         print("score " + str(rank) + "-" + str(rank+0.9) + ": solved " + str(solvedinrank) + "/" + str(totalinrank) + "\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
 
+def findsolvedinallranges():
+    print(" ")
+    print("Problems divided in difficulty:")
+    for i in range(100):
+        rank = i
+        totalinrank = 0
+        solvedinrank = 0
+        # listofrankprobs = [j for j in difficulty if rank <= j < rank + 1]
+        for j in range(len(problemnames)):
+            if rank == difficulty[j]*10:
+                totalinrank += 1
+                if solved[j] == "solved\n":
+                    solvedinrank += 1
+        if totalinrank > 0:
+            ratio = solvedinrank / totalinrank * 100
+            ratiostring = "%.2f" % ratio
+            print("score " + str(rank/10) + ": solved " + str(solvedinrank) + "/" + str(totalinrank) + "\t\t" + progressbar(ratio) + " (" + ratiostring + "%)")
+
+
 def progressbar(percent):
     WITDH = 20
     numofcharscompleted = int(percent/100*WITDH)
@@ -73,11 +92,12 @@ def progressbar(percent):
     barstring += "]"
     return barstring
 
-def parse(filename = None):
+
+def parse(filename = None, *args):
 
     if filename is "":
         #TODO: fix seneste
-        filename = "kattisdata-20191004223221.txt"
+        filename = "kattisdata-20191013221908.txt"
     reset()
     with open(filename, encoding="utf8") as fp:
         for line in fp:
@@ -96,6 +116,7 @@ def parse(filename = None):
     findnumofproblems()
     findnumofpoints()
     findsolvedinranges()
+    findsolvedinallranges()
 
 
 
