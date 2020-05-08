@@ -19,13 +19,14 @@ def scrape():
     while True:
         req = requests.get(url + str(page), headers=headers)
         soup = BeautifulSoup(req.text, 'html.parser')
-        print(".", flush=True, end = " ")
+        print(f"{page}..", flush=True, end='')
         results = 0
         page += 1
-        for row in soup.find("table").find("tbody").find_all("tr"):
+        for row in soup.find('table').find('tbody').find_all('tr'):
             results += 1
-            vals, cl = row.find_all("td"), row.get("class")
-            output.write("###".join([vals[x].text for x in range(9)]) + "###" + (str(cl[1]) if len(cl) > 1 else "unsolved") + "\n")
+            vals, cl = row.find_all('td'), row.get('class')
+            output.write(
+                '###'.join([vals[x].text for x in range(9)]) + '###' + (str(cl[1]) if len(cl) > 1 else 'unsolved') + '\n')
         if results == 0:
             break
 

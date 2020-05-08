@@ -28,7 +28,7 @@ def findnumofproblems():
     solvedproblems = solved.count("solved\n")
     ratio = solvedproblems/allproblems*100
     ratiostring = "%.2f" % ratio
-    print(str(solvedproblems)+ " out of " + str(allproblems) + " problems solved\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
+    print(str(solvedproblems) + " out of " + str(allproblems) + " problems solved\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
 
 
 def findnumofpoints():
@@ -97,7 +97,7 @@ def parse(filename = None, *args):
 
     if filename is "":
         #TODO: fix seneste
-        filename = "kattisdata-20191013221908.txt"
+        filename = "kattisdata-20200508211735.txt"
     reset()
     with open(filename, encoding="utf8") as fp:
         for line in fp:
@@ -110,7 +110,10 @@ def parse(filename = None, *args):
             usertotal.append(result[5])
             useraccept.append(result[6])
             userratop.append(result[7])
-            difficulty.append(float(result[8]))
+            if "-" in result[8]:
+                difficulty.append(0)
+            else:
+                difficulty.append(float(result[8]))
             solved.append(result[9])
     print(" ")
     findnumofproblems()
