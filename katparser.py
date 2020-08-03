@@ -1,3 +1,5 @@
+import os
+
 problemnames = []
 subtotal = []
 subaccept = []
@@ -61,6 +63,7 @@ def findsolvedinranges():
         ratiostring = "%.2f" % ratio
         print("score " + str(rank) + "-" + str(rank+0.9) + ": solved " + str(solvedinrank) + "/" + str(totalinrank) + "\t\t" + progressbar(ratio) + " (" + ratiostring +"%)")
 
+
 def findsolvedinallranges():
     print(" ")
     print("Problems divided in difficulty:")
@@ -94,11 +97,11 @@ def progressbar(percent):
 
 
 def parse(filename = None, *args):
+    if not filename:
+        filename = "kattis-latest.txt"
 
-    if filename is "":
-        #TODO: fix seneste
-        filename = "kattisdata-20200508211735.txt"
     reset()
+
     with open(filename, encoding="utf8") as fp:
         for line in fp:
             result = line.split("###")
@@ -120,6 +123,3 @@ def parse(filename = None, *args):
     findnumofpoints()
     findsolvedinranges()
     findsolvedinallranges()
-
-
-
